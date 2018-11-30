@@ -1,1 +1,1 @@
-# ant
+# ant -f %.xml% %targetname%
