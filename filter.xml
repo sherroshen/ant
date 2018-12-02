@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="structured" default=""> 
+	<!-- 过滤+mapper  -->
+	<target name="init">
+		<tstamp/>
+		<copy todir="new_web" overwrite="true">
+			<fileset dir="web" includes="**/*.jsp" />
+			<filterset>
+				<filter token="DATE" value="${DSTAMP}" />
+				<filter token="TIME" value="${TSTAMP}" />
+				<filter token="WHO" value="Shen" />
+			</filterset>
+			<!-- identity一致性映射,默认情况下,<copy>任务使用的是identity映射,下行可以省略  -->
+			<mapper type="identity" />
+		</copy>
+	</target>
+	
+	<!-- 扁平映射,所有拷贝文件都必须拥有不同的名,否则会被覆盖 -->
+	<target name="init2">
+		<tstamp/>
+		<copy todir="new_web2" overwrite="true">
+			<fileset dir="web" includes="**/*.jsp" />
+			<mapper type="flatten" />
+		</copy>
+	</target>
+	
+	<!-- 合并映射 -->
+	
+	<!-- 全局映射 -->
+	<target name="init4">
+		<tstamp/>
+		<copy todir="srcback">
+			<fileset dir="src" includes="**/*.java" />
+			<mapper type="glob" from="*.java" to="*.java.bak"/>
+		</copy>
+	</target>
+	
+	<!-- 包映射 -->
+	<target name="init5">
+		<tstamp/>
+		<copy todir="srcback">
+			<fileset dir="src" includes="**/*.java" />
+			<mapper type="package" from="*.java" to="TEST-*TEST.html"/>
+		</copy>
+	</target>
+	
+	<!-- 解包映射 -->
+	<target name="init6">
+		<tstamp/>
+		<copy todir="srcback">
+			<fileset dir="srcback" includes="**/*.html" />
+			<mapper type="unpackage" from="TEST-*TEST.html" to="*Test.java"/>
+		</copy>
+	</target>
+</project>

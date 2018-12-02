@@ -1,0 +1,16 @@
+<?xml version = '1.0' ?>
+<project name="fileset" default="cc">
+	<!-- ant -f %.xml% %targetname%  -->
+	<fileset dir="src" includes="**/*.java" id="source.fileset" />
+	<target name="cc">
+		<copy todir="backup">
+			<fileset refid="source.fileset" />
+		</copy>
+	</target>
+	
+	<!-- ant -f fileset.xml print -Dname=echo -->
+	<target name='print'>
+		<echo>${name}</echo>
+	</target>
+	
+</project>

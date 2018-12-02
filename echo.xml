@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<project name="attribute" default="show1" basedir="">
+	<target name="show1">
+		<echo>Hello Property</echo>
+		<echo message="Hello Property2" />
+		<echo message="Hello ${who}" />
+	</target>
+	
+	<target name="show2">
+		<echo message="Current OS is ${os.name}"/>
+		<!-- 基路径 -->
+		<echo message="Base URI is ${basedir}"/>
+	</target>
+</project>

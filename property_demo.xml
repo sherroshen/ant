@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<project name="property" default="">
+	<!-- 使用file属性制定一个属性文件的路径 -->
+	<property file="build.properties"/>
+	<target name="pro-file">
+		<echo message="value is: ${output.dir}"/>
+	</target>
+	
+	<target name="pro-file2">
+		<property name="outputdir" value="out"/>
+		<echo message="value2 is: ${outputdir}"/>
+	</target>
+	
+	<!-- 我们不应该从属性文件中来读取属性,因为从属性文件中读取的所有属性都会被默认看作是value而不是location -->
+	<!-- 属性:不变性,先来先得 -->
+	<target name="pro-file3">
+		<property name="outputdir3" location="out3"/>
+		<echo message="value3 is: ${outputdir3}"/>
+	</target>
+	
+	<!-- peoperty -> prefix -->
+</project>

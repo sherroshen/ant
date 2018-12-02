@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<project name="ant_demo" default="clean">
+	<description>
+		Demo project
+	</description>
+	<target name="init" description="init target">
+		<mkdir dir="build/classes" />
+		<mkdir dir="dist" />
+		<echo>Create Two File Successfully</echo>
+	</target>
+
+	
+	<target name="clean" depends="init" description="delete init file">
+		<delete dir="build/classes" />
+		<delete dir="dist" />
+		</target>
+	<!--
+	<target name="compile" depends="init">
+		<javac srcdir="src" destdir="build/classes" />
+	</target>
+	
+	<target name="doc" depends="init">
+		<javadoc destdir="build/classes" sourcepath="src" />
+	</target>
+	
+	<target>
+		<target name="deploy" depends="compile,doc">
+		<jar destfile="dist/project.jar" basedir="build/classes" />
+	</target>
+	-->
+</project>
