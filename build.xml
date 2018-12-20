@@ -16,7 +16,7 @@
 		</target>
 	<!--
 	<target name="compile" depends="init">
-		<javac srcdir="src" destdir="build/classes" />
+		<javac srcdir="src" destdir="build/classes" includeantruntime="on"/>
 	</target>
 	
 	<target name="doc" depends="init">
