@@ -20,7 +20,7 @@
 	</target>
 	
 	<target name="doc" depends="init">
-		<javadoc destdir="build/classes" sourcepath="src" />
+		<javadoc destdir="build/classes" sourcepath="src" packagenames=""/>
 	</target>
 	
 	<target>
